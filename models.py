@@ -2,11 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-# class Student(models.Model):
-#     std_id = models.IntegerField(primary_key=True)
-#     std_name = models.CharField(max_length = 255)
-#     std_age = models.IntegerField()
-
 
 class Book(models.Model):
     B_id = models.IntegerField(primary_key = True)
