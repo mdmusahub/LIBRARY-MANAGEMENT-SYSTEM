@@ -5,24 +5,7 @@ from . import views
 
 urlpatterns = [
 
-
-    path('home/',views.home),
-    path('info/',views.information),
-    path('home1/',views.home1),
-    path('home2/',views.home2),
-
-
-
-    path('students/',views.students),   # All urls to students management
-    path('update/',views.update),
-    path('addstudent/',views.addstudent),
-    path('submitstudent/',views.submitstudent),
-    path('allstudents/',views.allstudents),
-
-
-
-
-    path('library/',views.library),      # All urls to library management 
+    path('library/',views.library)      # All urls to library management 
     path('addbook/',views.addbook),
     path('updatebook/',views.updatebook),
     path('deletebook/',views.deletebook),
