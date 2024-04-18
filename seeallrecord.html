@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <style>
+
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    body,table{
+        height: 100%;
+        width: 100%;
+    }
+    
+    table,td,th,tr{
+        border: 1px solid salmon;
+    }
+    table{
+        font-size: 200%;
+        color: white;
+        background-color: black;
+    }
+    #deleteinput{
+        display: none;
+    }
+
+    #i1{
+    font-size: 250%;
+    width: 100%;
+    cursor: pointer;
+    background-color: blue;
+   
+}
+#i2{
+    font-size: 250%;
+    width: 100%;
+    cursor: pointer;
+    background-color: red;
+   
+}
+    
+    
+        </style>
+
+
+
+</head>
+
+
+
+<body>
+    <table>
+    <tr>
+
+        <th>R_id</th>
+        <th>Member_id</th>
+        <th>Member_Name</th>
+        <th>Book_id</th>
+        <th>Book_name</th>
+        <th>B_issue_date</th>
+        <th>B_return_date</th>
+        <th>Status</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+
+    {% for i in records %}
+    <tr>
+    <td>{{ i.R_id }}</td>
+    <td>{{ i.Member_id_id }}</td>
+    <td>{{ i.Member_Name }}</td>
+    <td>{{ i.Book_id_id }}</td>
+    <td>{{ i.Book_name }}</td>
+    <td>{{ i.B_issue_date }}</td>
+    <td>{{ i.B_return_date }}</td>
+    <td>{{ i.Status }}</td>
+
+    <td>
+
+        <button>
+            <details>
+
+                <summary id="i1">EDIT</summary>
+
+
+                <form action="/updaterecord" method="get"> 
+
+                    <h1>R_id</h1> <input type="number" name="uR_id" value="{{ i.R_id }}" required>
+                    <br><br>
+                    
+                    <h1>Member_id</h1> <input type="number" name="uMember_id" value="{{ i.Member_id_id }}" required>
+                    <br><br>
+                    
+                    <h1>Member_Name</h1> <input type="text" name="uMember_Name" value="{{ i.Member_Name }}" required >
+                    <br><br>
+                    
+                    <h1>Book_id</h1> <input type="number" name="uBook_id" value="{{ i.Book_id_id }}" required>
+                    <br><br>
+                    
+                    <h1>Book_name</h1> <input type="text" name="uBook_name" value="{{ i.Book_name }}" required>
+                    <br><br>
+                    
+                    <h1>B_issue_date</h1> <input type="date" name="uB_issue_date" value="{{ i.B_issue_date }}" required >
+                    <br><br>
+                    
+                    <h1>B_return_date</h1> <input type="date" name="uB_return_date" value="{{ i.B_return_date }}" required>
+                    <br><br>
+                    
+                    <h1>Status</h1> <input type="text" name="uStatus" value="{{ i.Status }}" required>
+                    <br><br><br>
+                    
+                    <input type="submit" value="UPDATE RECORDS">
+                    <br><br>
+
+                </form>
+            </details>
+        </button>
+    </td>
+
+
+
+
+    <td>
+        <button>
+            
+                <form action="/deleterecord" method="get">
+                    <input id="deleteinput" type="number" name="uR_id" value="{{ i.R_id }}">
+                    <input id="i2" type="submit" value="Delete">
+                </form>   
+
+        </button>
+    </td>
+
+</tr>
+
+    {% endfor %}
+    
+
+
+
+    </table>
+    
+
+
+
+
+</body>
+</html>
