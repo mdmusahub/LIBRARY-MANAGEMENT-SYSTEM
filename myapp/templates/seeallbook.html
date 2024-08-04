@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+
+    <style>
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body,table{
+    height: 100%;
+    width: 100%;
+}
+
+table,td,th,tr{
+    border: 1px solid salmon;
+    
+}
+table{
+
+    font-size: 250%;
+    color: white;
+    background-color: black;
+}
+
+#deleteinput{
+    display: none;
+}
+
+#i1{
+    font-size: 250%;
+    width: 114%;
+    cursor: pointer;
+    background-color: blue;
+   
+}
+#i2{
+    font-size: 250%;
+    width: 120%;
+    cursor: pointer;
+    background-color: red;
+   
+}
+
+
+    </style>
+
+
+
+
+</head>
+
+
+
+<body>
+    
+<table>
+    
+    <tr>
+        <th>B_id</th>
+        <th>B_name</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Semester</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+
+    {% for i in books %}
+
+    <tr>
+        
+    <td>{{ i.B_id }}</td>
+    <td>{{ i.B_name }}</td>
+    <td>{{ i.Subject }}</td>
+    <td>{{ i.Description }}</td>
+    <td>{{ i.Semester }}</td>
+    <td>{{ i.Quantity }}</td>
+    <td>{{ i.Price }}</td>
+
+    <td>
+        <button>
+            <details>
+                    <summary id="i1" >update</summary>
+
+
+                    <form action="/updatebook" method="GET">
+
+                        <h1>B_id</h1> <input type="number" name="uB_id" value="{{ i.B_id }}" required>
+                        <br><br>
+                        
+                        <h1>B_name</h1> <input type="text" name="uB_name"  value=" {{i.B_name}}" required >
+                        <br><br>
+                        
+                        <h1>Subject</h1> <input type="text" name="uSubject" value=" {{i.Subject}}" required >
+                        <br><br>
+                        
+                        <h1>Description</h1> <input type="text" name="uDescription" value=" {{i.Description}}" required  >
+                        <br><br>
+                        
+                        <h1>Semester</h1> <input type="number" name="uSemester" value="{{ i.Semester }}" required >
+                        <br><br>
+                        
+                        <h1>Quantity</h1> <input type="number" name="uQuantity" value="{{ i.Quantity }}" required >
+                        <br><br>
+                        
+                        <h1>Price</h1> <input type="number" name="uPrice" value="{{ i.Price }}" required>
+                        <br><br><br>
+                        
+                        <input type="submit" value="UPDATE BOOK">
+                        <br><br>
+                        
+                        </form>
+            </details>
+        </button>
+    </td>
+
+
+
+
+
+    <td>
+            <button>
+                
+                    <form action="/deletebook" method="get">
+                        <input id="deleteinput" type="number" name="uB_id" value="{{ i.B_id }}">
+                        <input id="i2" type="submit" value="Delete">
+                    </form>   
+
+            </button>
+    </td>
+</tr>
+    
+
+    {% endfor %}
+
+</table>
+
+
+
+
+
+
+</body>
+</html>
